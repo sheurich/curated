@@ -19,6 +19,7 @@ README_PATH = ROOT / "README.md"
 
 SLUG_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+CONTROL_CHAR_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 VALID_FORMATS = {
     "interactive",
     "archive",
@@ -114,6 +115,10 @@ def validate_payload(data: dict) -> list[str]:
         added = res.get("added", "")
         if added and not DATE_RE.match(added):
             errors.append(f"{prefix}: invalid date '{added}' (expected YYYY-MM-DD)")
+
+        for field_name, val in res.items():
+            if isinstance(val, str) and CONTROL_CHAR_RE.search(val):
+                errors.append(f"{prefix}: field '{field_name}' contains disallowed control characters")
 
     return errors
 
@@ -314,7 +319,12 @@ def build() -> int:
         default=datetime.now(timezone.utc).strftime("%Y-%m-%d"),
     )
 
-    safe_json = json.dumps(data, ensure_ascii=False, indent=2).replace("</", "<\\/")
+    safe_json = (
+        json.dumps(data, ensure_ascii=False, indent=2)
+        .replace("&", "\\u0026")
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+    )
 
     rendered_html = (
         template.replace("{{TITLE}}", html.escape(data["meta"]["title"]))

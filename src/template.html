@@ -1028,6 +1028,16 @@
           .replace(/'/g, '&#39;');
       }
 
+      function safeUrl(raw) {
+        try {
+          const parsed = new URL(String(raw || ''));
+          if (parsed.protocol === 'https:' || parsed.protocol === 'http:') {
+            return escapeHtml(parsed.href);
+          }
+        } catch (_) {}
+        return '#';
+      }
+
       // Sync state from URL hash
       function readHashState() {
         const hash = window.location.hash.replace(/^#/, '');
@@ -1243,7 +1253,7 @@
                   </div>
                 </div>
                 <h2 class="card-title">
-                  <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">
+                  <a href="${safeUrl(r.url)}" target="_blank" rel="noopener noreferrer">
                     <span>${escapeHtml(r.title)}</span>
                     <span class="ext-arrow" aria-hidden="true">↗</span>
                   </a>
@@ -1282,7 +1292,7 @@
                 ${items.map(r => `
                   <tr>
                     <td>
-                      <a class="index-title-link" href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">
+                      <a class="index-title-link" href="${safeUrl(r.url)}" target="_blank" rel="noopener noreferrer">
                         ${escapeHtml(r.title)} ↗
                       </a>
                       <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.2rem;">
@@ -1343,7 +1353,7 @@
                   ${entries.map(r => `
                     <li class="directory-item">
                       <div class="directory-item-main">
-                        <a class="directory-item-title" href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">
+                        <a class="directory-item-title" href="${safeUrl(r.url)}" target="_blank" rel="noopener noreferrer">
                           ${escapeHtml(r.title)} ↗
                         </a>
                         <span class="domain-badge">(${escapeHtml(getDomain(r.url))})</span>
@@ -1390,7 +1400,7 @@
                   <ul class="tag-atlas-links">
                     ${list.map(r => `
                       <li>
-                        <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title)} ↗</a>
+                        <a href="${safeUrl(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title)} ↗</a>
                         <span class="domain-badge"> · ${escapeHtml(getDomain(r.url))}</span>
                       </li>
                     `).join('')}

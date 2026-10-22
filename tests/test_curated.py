@@ -47,6 +47,24 @@ class TestCuratedSite(unittest.TestCase):
         self.assertIn("`#museum`", readme)
         self.assertIn("`#free`", readme)
 
+    def test_security_validation_rejects_dangerous_schemes_and_control_chars(self) -> None:
+        base = json.loads(build.DATA_PATH.read_text(encoding="utf-8"))
+        bad = json.loads(json.dumps(base))
+        bad["resources"].append(
+            {
+                "id": "bad-entry",
+                "title": "Bad \x1b[31mEntry",
+                "url": "javascript:alert(1)",
+                "category": "arts-culture",
+                "scopes": ["family"],
+                "tags": ["art"],
+                "added": "2026-10-22",
+            }
+        )
+        errors = build.validate_payload(bad)
+        self.assertTrue(any("invalid http(s) url" in e for e in errors))
+        self.assertTrue(any("disallowed control characters" in e for e in errors))
+
 
 if __name__ == "__main__":
     unittest.main()

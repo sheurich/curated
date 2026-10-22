@@ -6,10 +6,7 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+permissions: {}
 
 concurrency:
   group: "pages"
@@ -18,9 +15,13 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -28,19 +29,24 @@ jobs:
           python-version: "3.12"
 
       - name: Validate and build site
+        shell: bash
         run: |
+          set -euo pipefail
           python3 scripts/build.py
           python3 -m unittest discover -s tests -v
 
-      - name: Configure Pages
-        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
-
       - name: Archive Pages artifact
+        shell: bash
         run: |
+          set -euo pipefail
+          if [[ -z "${RUNNER_TEMP:-}" ]]; then
+            echo "RUNNER_TEMP is not set" >&2
+            exit 1
+          fi
           tar \
             --dereference --hard-dereference \
             --directory site \
-            -cvf "$RUNNER_TEMP/artifact.tar" \
+            -cvf "${RUNNER_TEMP}/artifact.tar" \
             --exclude=.git \
             --exclude=.github \
             .
@@ -59,6 +65,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      pages: write
+      id-token: write
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
