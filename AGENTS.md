@@ -28,3 +28,6 @@ Before treating any change as complete or committing:
    actionlint
    uvx zizmor .github/workflows/
    ```
+
+## Publication Policy
+- Always publish completed work in this repository: once validation and tests pass, create a signed commit and push to `origin/main` so the GitHub Pages deployment stays current.
