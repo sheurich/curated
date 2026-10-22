@@ -17,9 +17,9 @@ A curated directory of enduring internet resources for personal and family use, 
 
 | Scope | Description | Entries | Direct View |
 | :--- | :--- | :---: | :--- |
-| **Family** | Shared discoveries suitable for browsing, learning, and exploring together. | 1 | [Open Family View](https://sheurich.github.io/curated/#scope=family) |
-| **Kids & Youth** | Approachable, visual, and curiosity-sparking resources for younger explorers. | 1 | [Open Kids & Youth View](https://sheurich.github.io/curated/#scope=kids) |
-| **Personal** | Deep reference, tools, essays, and specialized interests. | 1 | [Open Personal View](https://sheurich.github.io/curated/#scope=personal) |
+| **Family** | Shared discoveries suitable for browsing, learning, and exploring together. | 2 | [Open Family View](https://sheurich.github.io/curated/#scope=family) |
+| **Kids & Youth** | Approachable, visual, and curiosity-sparking resources for younger explorers. | 2 | [Open Kids & Youth View](https://sheurich.github.io/curated/#scope=kids) |
+| **Personal** | Deep reference, tools, essays, and specialized interests. | 2 | [Open Personal View](https://sheurich.github.io/curated/#scope=personal) |
 | **Household** | Practical utilities, planning references, and everyday guides. | 0 | [Open Household View](https://sheurich.github.io/curated/#scope=household) |
 
 ## Resources by Category
@@ -32,17 +32,35 @@ A curated directory of enduring internet resources for personal and family use, 
   - *Scopes:* Family, Kids & Youth, Personal · *Tags:* `#art` `#museum` `#free`
   - *Note:* Great for exploring art history chronologically or searching by subject, artist, or era.
 
+### Making & Play
+
+*Puzzles, crafts, games, and hands-on projects.*
+
+- **[Neal.fun](https://neal.fun/)** (neal.fun) — Interactive micro-games, playful simulations, and visual web experiments by Neal Agarwal—from Infinite Craft and The Password Game to exploring the deep sea and outer space.
+  - *Scopes:* Family, Kids & Youth, Personal · *Tags:* `#games` `#interactive` `#play` `#science` `#free`
+  - *Note:* Great for kids and family browsing; standout experiments include Infinite Craft, The Deep Sea, The Size of Space, Internet Artifacts, and The Password Game.
+
 ## Tag Index
 
 - [`#art`](https://sheurich.github.io/curated/#tags=art) (1): [The Last Museum](https://lastmuseum.com/)
-- [`#free`](https://sheurich.github.io/curated/#tags=free) (1): [The Last Museum](https://lastmuseum.com/)
+- [`#free`](https://sheurich.github.io/curated/#tags=free) (2): [The Last Museum](https://lastmuseum.com/), [Neal.fun](https://neal.fun/)
+- [`#games`](https://sheurich.github.io/curated/#tags=games) (1): [Neal.fun](https://neal.fun/)
+- [`#interactive`](https://sheurich.github.io/curated/#tags=interactive) (1): [Neal.fun](https://neal.fun/)
 - [`#museum`](https://sheurich.github.io/curated/#tags=museum) (1): [The Last Museum](https://lastmuseum.com/)
+- [`#play`](https://sheurich.github.io/curated/#tags=play) (1): [Neal.fun](https://neal.fun/)
+- [`#science`](https://sheurich.github.io/curated/#tags=science) (1): [Neal.fun](https://neal.fun/)
 
 ---
 
 ## Adding or Updating Resources
 
 Resources live in [`data/resources.json`](data/resources.json) and follow [`schema/resources.schema.json`](schema/resources.schema.json).
+
+### In Pi (`/add` skill & command)
+
+```text
+/add neal.fun games site
+```
 
 ### Quick CLI (`scripts/curate.py`)
 

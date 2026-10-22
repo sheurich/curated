@@ -80,6 +80,30 @@
       "access": "free",
       "added": "2026-10-22",
       "featured": true
+    },
+    {
+      "id": "neal-fun",
+      "title": "Neal.fun",
+      "url": "https://neal.fun/",
+      "description": "Interactive micro-games, playful simulations, and visual web experiments by Neal Agarwal—from Infinite Craft and The Password Game to exploring the deep sea and outer space.",
+      "notes": "Great for kids and family browsing; standout experiments include Infinite Craft, The Deep Sea, The Size of Space, Internet Artifacts, and The Password Game.",
+      "category": "making-play",
+      "scopes": [
+        "family",
+        "kids",
+        "personal"
+      ],
+      "tags": [
+        "games",
+        "interactive",
+        "play",
+        "science",
+        "free"
+      ],
+      "format": "interactive",
+      "access": "free",
+      "added": "2026-10-22",
+      "featured": true
     }
   ]
 }

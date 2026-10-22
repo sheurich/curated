@@ -5,6 +5,7 @@
 - HTML template: `src/template.html`
 - Build & validation script: `scripts/build.py`
 - CLI curation helper: `scripts/curate.py`
+- Project skill & slash command: `.agents/skills/add/SKILL.md` (`/skill:add`) and `.pi/prompts/add.md` (`/add`)
 - Generated outputs (committed and deployed to GitHub Pages): `site/` and `README.md`
 
 ## Non-Negotiable Security Rules

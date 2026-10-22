@@ -1,5 +1,5 @@
 .DS_Store
-.pi/
+.pi/tasks/
 __pycache__/
 *.py[cod]
 .pytest_cache/
