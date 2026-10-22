@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "title": "Curated",
+    "subtitle": "A minimalist index of enduring internet resources for personal and family exploration.",
+    "owner": "sheurich"
+  },
+  "scopes": [
+    {
+      "id": "family",
+      "label": "Family",
+      "description": "Shared discoveries suitable for browsing, learning, and exploring together."
+    },
+    {
+      "id": "kids",
+      "label": "Kids & Youth",
+      "description": "Approachable, visual, and curiosity-sparking resources for younger explorers."
+    },
+    {
+      "id": "personal",
+      "label": "Personal",
+      "description": "Deep reference, tools, essays, and specialized interests."
+    },
+    {
+      "id": "household",
+      "label": "Household",
+      "description": "Practical utilities, planning references, and everyday guides."
+    }
+  ],
+  "categories": [
+    {
+      "id": "arts-culture",
+      "label": "Arts & Culture",
+      "description": "Museums, visual art, music, history, and cultural archives."
+    },
+    {
+      "id": "learning-reference",
+      "label": "Learning & Reference",
+      "description": "Encyclopedias, explainers, interactive courses, and deep dives."
+    },
+    {
+      "id": "science-nature",
+      "label": "Science & Nature",
+      "description": "Space, biology, earth sciences, physics, and the natural world."
+    },
+    {
+      "id": "tools-utilities",
+      "label": "Tools & Utilities",
+      "description": "Practical web tools, calculators, maps, and creative utilities."
+    },
+    {
+      "id": "reading-media",
+      "label": "Reading & Media",
+      "description": "Books, public domain libraries, audio, and thoughtful publications."
+    },
+    {
+      "id": "making-play",
+      "label": "Making & Play",
+      "description": "Puzzles, crafts, games, and hands-on projects."
+    }
+  ],
+  "resources": [
+    {
+      "id": "the-last-museum",
+      "title": "The Last Museum",
+      "url": "https://lastmuseum.com/",
+      "description": "Search and browse over 6.3 million artworks across human history—from 3000 BC to the present—with timeline filtering and high-resolution museum plates.",
+      "notes": "Great for exploring art history chronologically or searching by subject, artist, or era.",
+      "category": "arts-culture",
+      "scopes": [
+        "family",
+        "kids",
+        "personal"
+      ],
+      "tags": [
+        "art",
+        "museum",
+        "free"
+      ],
+      "format": "archive",
+      "access": "free",
+      "added": "2026-10-22",
+      "featured": true
+    }
+  ]
+}

@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curated — A minimalist index of enduring internet resources for personal and family exploration.</title>
+  <meta name="description" content="A minimalist index of enduring internet resources for personal and family exploration.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23254f42'/%3E%3Cpath d='M9 10h14v2H9zm0 5h14v2H9zm0 5h9v2H9z' fill='%23fbfaf7'/%3E%3Ccircle cx='22' cy='21' r='2.5' fill='%23e2955a'/%3E%3C/svg%3E">
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('curated-theme');
+        if (saved === 'light' || saved === 'dark' || saved === 'auto') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (_) {}
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --bg-elevated: #ffffff;
+      --bg-subtle: #f3f1eb;
+      --bg-hover: #ece9e0;
+      --text: #181816;
+      --text-secondary: #57554f;
+      --text-muted: #7b7870;
+      --border: #e4e1d8;
+      --border-strong: #ccc7ba;
+      --accent: #235344;
+      --accent-soft: #e6f0ec;
+      --accent-text: #193e32;
+      --tag-bg: #f1efe9;
+      --tag-text: #3d3b36;
+      --tag-border: #dfdcd2;
+      --scope-family-bg: #e7f2ed;
+      --scope-family-text: #1e4d3e;
+      --scope-kids-bg: #fef1e1;
+      --scope-kids-text: #83450f;
+      --scope-personal-bg: #eaeef7;
+      --scope-personal-text: #283f6b;
+      --scope-household-bg: #f2ebf7;
+      --scope-household-text: #51326b;
+      --shadow-sm: 0 1px 2px rgba(24, 24, 22, 0.04);
+      --shadow-md: 0 6px 18px rgba(24, 24, 22, 0.07);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+      --font-mono: ui-monospace, "SFMono-Regular", SFMono, Menlo, Consolas, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root[data-theme="auto"] {
+        --bg: #111315;
+        --bg-elevated: #171a1d;
+        --bg-subtle: #1d2125;
+        --bg-hover: #252a30;
+        --text: #eceae4;
+        --text-secondary: #a7a49c;
+        --text-muted: #78756e;
+        --border: #262b30;
+        --border-strong: #383f47;
+        --accent: #6ec4a7;
+        --accent-soft: rgba(110, 196, 167, 0.14);
+        --accent-text: #8dd6bd;
+        --tag-bg: #1e2227;
+        --tag-text: #ccc9c0;
+        --tag-border: #2d333b;
+        --scope-family-bg: rgba(78, 168, 138, 0.16);
+        --scope-family-text: #8cd8be;
+        --scope-kids-bg: rgba(230, 155, 76, 0.16);
+        --scope-kids-text: #f3be82;
+        --scope-personal-bg: rgba(108, 149, 224, 0.16);
+        --scope-personal-text: #9ec0f7;
+        --scope-household-bg: rgba(173, 133, 219, 0.16);
+        --scope-household-text: #cfb2f2;
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+        --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #111315;
+      --bg-elevated: #171a1d;
+      --bg-subtle: #1d2125;
+      --bg-hover: #252a30;
+      --text: #eceae4;
+      --text-secondary: #a7a49c;
+      --text-muted: #78756e;
+      --border: #262b30;
+      --border-strong: #383f47;
+      --accent: #6ec4a7;
+      --accent-soft: rgba(110, 196, 167, 0.14);
+      --accent-text: #8dd6bd;
+      --tag-bg: #1e2227;
+      --tag-text: #ccc9c0;
+      --tag-border: #2d333b;
+      --scope-family-bg: rgba(78, 168, 138, 0.16);
+      --scope-family-text: #8cd8be;
+      --scope-kids-bg: rgba(230, 155, 76, 0.16);
+      --scope-kids-text: #f3be82;
+      --scope-personal-bg: rgba(108, 149, 224, 0.16);
+      --scope-personal-text: #9ec0f7;
+      --scope-household-bg: rgba(173, 133, 219, 0.16);
+      --scope-household-text: #cfb2f2;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font: inherit;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* Header */
+    .site-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand h1 {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.25rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      max-width: 58ch;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .theme-switcher {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 2px;
+    }
+
+    .theme-btn {
+      border: 0;
+      background: transparent;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .theme-btn:hover {
+      color: var(--text);
+    }
+
+    .theme-btn.active {
+      background: var(--bg-elevated);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+      font-weight: 500;
+    }
+
+    .action-btn {
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      padding: 0.36rem 0.72rem;
+      font-size: 0.82rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all 0.12s ease;
+    }
+
+    .action-btn:hover {
+      border-color: var(--border-strong);
+      color: var(--text);
+      background: var(--bg-subtle);
+    }
+
+    /* Scopes Navigation Bar */
+    .scopes-section {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .scopes-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      align-items: center;
+    }
+
+    .scope-tab {
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      padding: 0.42rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: all 0.12s ease;
+    }
+
+    .scope-tab:hover {
+      border-color: var(--border-strong);
+      color: var(--text);
+    }
+
+    .scope-tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    :root[data-theme="dark"] .scope-tab.active {
+      color: #0e1714;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root[data-theme="auto"] .scope-tab.active {
+        color: #0e1714;
+      }
+    }
+
+    .scope-count {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      opacity: 0.82;
+    }
+
+    .scope-description {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      min-height: 1.25rem;
+    }
+
+    /* Discovery Controls (Search, Category, View Switcher) */
+    .controls-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 0.65rem;
+      align-items: center;
+    }
+
+    @media (max-width: 780px) {
+      .controls-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      color: var(--text-muted);
+      pointer-events: none;
+      font-size: 0.9rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.55rem 2.4rem 0.55rem 2.2rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-elevated);
+      font-size: 0.92rem;
+      transition: border-color 0.12s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .search-kbd {
+      position: absolute;
+      right: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.05rem 0.38rem;
+      pointer-events: none;
+    }
+
+    .select-control {
+      padding: 0.52rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-elevated);
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .select-control:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .view-switcher {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 2px;
+    }
+
+    .view-btn {
+      border: 0;
+      background: transparent;
+      padding: 0.38rem 0.68rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .view-btn:hover {
+      color: var(--text);
+    }
+
+    .view-btn.active {
+      background: var(--bg-elevated);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+      font-weight: 500;
+    }
+
+    /* Tag Rail */
+    .tag-rail-wrap {
+      margin-top: 0.85rem;
+      padding: 0.65rem 0.85rem;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .tag-rail-label {
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-right: 0.3rem;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--tag-border);
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .tag-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent-text);
+    }
+
+    .tag-pill.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    :root[data-theme="dark"] .tag-pill.active {
+      color: #0e1714;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root[data-theme="auto"] .tag-pill.active {
+        color: #0e1714;
+      }
+    }
+
+    .tag-pill-count {
+      font-size: 0.7rem;
+      opacity: 0.75;
+    }
+
+    .tag-mode-btn, .clear-filters-btn {
+      margin-left: auto;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .clear-filters-btn:hover, .tag-mode-btn:hover {
+      color: var(--text);
+      border-color: var(--border-strong);
+    }
+
+    /* Status / Results Summary */
+    .status-bar {
+      margin: 1.2rem 0 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    /* View 1: Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+
+    .resource-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.85rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease;
+    }
+
+    .resource-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .resource-card.highlighted {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft), var(--shadow-md);
+    }
+
+    .card-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .card-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .domain-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .badges-group {
+      display: inline-flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .scope-badge {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.1rem 0.48rem;
+      border-radius: 4px;
+      letter-spacing: 0.01em;
+    }
+
+    .scope-badge[data-scope="family"] {
+      background: var(--scope-family-bg);
+      color: var(--scope-family-text);
+    }
+
+    .scope-badge[data-scope="kids"] {
+      background: var(--scope-kids-bg);
+      color: var(--scope-kids-text);
+    }
+
+    .scope-badge[data-scope="personal"] {
+      background: var(--scope-personal-bg);
+      color: var(--scope-personal-text);
+    }
+
+    .scope-badge[data-scope="household"] {
+      background: var(--scope-household-bg);
+      color: var(--scope-household-text);
+    }
+
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.22rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .card-title a {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35rem;
+    }
+
+    .card-title a:hover {
+      color: var(--accent-text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .ext-arrow {
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      transition: transform 0.12s ease;
+    }
+
+    .card-title a:hover .ext-arrow {
+      transform: translate(2px, -2px);
+      color: var(--accent-text);
+    }
+
+    .card-desc {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    .card-notes {
+      margin: 0;
+      padding: 0.5rem 0.65rem;
+      background: var(--bg-subtle);
+      border-left: 2px solid var(--accent);
+      border-radius: 0 4px 4px 0;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-top: 0.45rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.32rem;
+    }
+
+    .card-category {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    /* View 2: Compact Index Table */
+    .index-table-wrap {
+      overflow-x: auto;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .index-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .index-table th {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      padding: 0.7rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-subtle);
+      white-space: nowrap;
+    }
+
+    .index-table td {
+      padding: 0.75rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .index-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .index-table tr:hover td {
+      background: var(--bg-subtle);
+    }
+
+    .index-title-link {
+      font-weight: 600;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+    }
+
+    .index-title-link:hover {
+      color: var(--accent-text);
+      text-decoration: underline;
+    }
+
+    /* View 3: Directory View (By Category / By Scope) */
+    .directory-sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .directory-group {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.25rem;
+    }
+
+    .directory-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-bottom: 0.65rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .directory-group-title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .directory-group-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .directory-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .directory-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .directory-item:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .directory-item-main {
+      flex: 1 1 420px;
+    }
+
+    .directory-item-title {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: 1.03rem;
+      margin-right: 0.45rem;
+    }
+
+    .directory-item-title:hover {
+      color: var(--accent-text);
+      text-decoration: underline;
+    }
+
+    .directory-item-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* View 4: Tag Atlas View */
+    .tag-atlas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .tag-atlas-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .tag-atlas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tag-atlas-name {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-text);
+      cursor: pointer;
+      background: none;
+      border: 0;
+      padding: 0;
+    }
+
+    .tag-atlas-name:hover {
+      text-decoration: underline;
+    }
+
+    .tag-atlas-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.88rem;
+    }
+
+    .tag-atlas-links a {
+      font-weight: 500;
+    }
+
+    .tag-atlas-links a:hover {
+      color: var(--accent-text);
+      text-decoration: underline;
+    }
+
+    .related-tags-row {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 0.4rem;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--bg-elevated);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+    }
+
+    /* Footer */
+    .site-footer {
+      margin-top: 3.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <div class="brand">
+        <h1><span class="brand-dot" aria-hidden="true"></span> Curated</h1>
+        <p>A minimalist index of enduring internet resources for personal and family exploration.</p>
+      </div>
+      <div class="header-controls">
+        <button type="button" class="action-btn" id="surprise-btn" title="Pick a random resource from current filters">
+          <span>✦</span> Surprise Me
+        </button>
+        <div class="theme-switcher" role="group" aria-label="Color theme">
+          <button type="button" class="theme-btn" data-theme-val="auto">Auto</button>
+          <button type="button" class="theme-btn" data-theme-val="light">Light</button>
+          <button type="button" class="theme-btn" data-theme-val="dark">Dark</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="scopes-section" aria-label="Resource Scopes">
+      <div class="scopes-bar" id="scopes-bar"></div>
+      <div class="scope-description" id="scope-description"></div>
+    </section>
+
+    <section class="controls-grid" aria-label="Search and View Controls">
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="search-input"
+          class="search-input"
+          placeholder="Search titles, descriptions, domains, or #tags…"
+          aria-label="Search curated resources"
+          autocomplete="off"
+        >
+        <kbd class="search-kbd" id="search-kbd">/</kbd>
+      </div>
+
+      <select id="category-select" class="select-control" aria-label="Filter by category">
+        <option value="all">All Categories</option>
+      </select>
+
+      <select id="sort-select" class="select-control" aria-label="Sort resources">
+        <option value="newest">Newest Added</option>
+        <option value="title">Title (A–Z)</option>
+        <option value="category">Category</option>
+        <option value="domain">Domain</option>
+      </select>
+
+      <div class="view-switcher" role="group" aria-label="View layout">
+        <button type="button" class="view-btn active" data-view="cards">Cards</button>
+        <button type="button" class="view-btn" data-view="index">Index</button>
+        <button type="button" class="view-btn" data-view="directory">Directory</button>
+        <button type="button" class="view-btn" data-view="tags">Tag Atlas</button>
+      </div>
+    </section>
+
+    <section class="tag-rail-wrap" aria-label="Filter by tags">
+      <span class="tag-rail-label">Tags</span>
+      <div id="tag-rail" style="display:flex;flex-wrap:wrap;gap:0.38rem;align-items:center;"></div>
+      <button type="button" class="tag-mode-btn" id="tag-mode-btn" title="Toggle matching any vs all selected tags">Match: ALL</button>
+      <button type="button" class="clear-filters-btn" id="clear-filters-btn" hidden>Reset filters</button>
+    </section>
+
+    <div class="status-bar">
+      <span id="results-summary">Showing all 1 curated resource</span>
+      <span id="active-filter-pills"></span>
+    </div>
+
+    <main id="results-container" aria-live="polite">
+      <div class="cards-grid"><article class="resource-card" id="res-the-last-museum">  <div class="card-top">    <div class="card-meta-row">      <span class="domain-badge">lastmuseum.com · archive</span>      <div class="badges-group"><span class="scope-badge" data-scope="family">Family</span><span class="scope-badge" data-scope="kids">Kids &amp; Youth</span><span class="scope-badge" data-scope="personal">Personal</span></div>    </div>    <h2 class="card-title">      <a href="https://lastmuseum.com/" target="_blank" rel="noopener noreferrer">        <span>The Last Museum</span>        <span class="ext-arrow" aria-hidden="true">↗</span>      </a>    </h2>    <p class="card-desc">Search and browse over 6.3 million artworks across human history—from 3000 BC to the present—with timeline filtering and high-resolution museum plates.</p>    <p class="card-notes">Great for exploring art history chronologically or searching by subject, artist, or era.</p>  </div>  <div class="card-footer">    <div class="card-tags"><button type="button" class="tag-pill" data-card-tag="art">#art</button><button type="button" class="tag-pill" data-card-tag="museum">#museum</button><button type="button" class="tag-pill" data-card-tag="free">#free</button></div>    <span class="card-category">Arts &amp; Culture</span>  </div></article></div>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        Curated by <strong>sheurich</strong> · Updated 2026-10-22
+      </div>
+      <div class="footer-links">
+        <a href="resources.json">JSON Feed</a>
+        <a href="bookmarks.html">Bookmarks Export</a>
+        <a href="https://github.com/sheurich/curated" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+      </div>
+    </footer>
+  </div>
+
+  <script id="curated-data" type="application/json">{
+  "meta": {
+    "title": "Curated",
+    "subtitle": "A minimalist index of enduring internet resources for personal and family exploration.",
+    "owner": "sheurich"
+  },
+  "scopes": [
+    {
+      "id": "family",
+      "label": "Family",
+      "description": "Shared discoveries suitable for browsing, learning, and exploring together."
+    },
+    {
+      "id": "kids",
+      "label": "Kids & Youth",
+      "description": "Approachable, visual, and curiosity-sparking resources for younger explorers."
+    },
+    {
+      "id": "personal",
+      "label": "Personal",
+      "description": "Deep reference, tools, essays, and specialized interests."
+    },
+    {
+      "id": "household",
+      "label": "Household",
+      "description": "Practical utilities, planning references, and everyday guides."
+    }
+  ],
+  "categories": [
+    {
+      "id": "arts-culture",
+      "label": "Arts & Culture",
+      "description": "Museums, visual art, music, history, and cultural archives."
+    },
+    {
+      "id": "learning-reference",
+      "label": "Learning & Reference",
+      "description": "Encyclopedias, explainers, interactive courses, and deep dives."
+    },
+    {
+      "id": "science-nature",
+      "label": "Science & Nature",
+      "description": "Space, biology, earth sciences, physics, and the natural world."
+    },
+    {
+      "id": "tools-utilities",
+      "label": "Tools & Utilities",
+      "description": "Practical web tools, calculators, maps, and creative utilities."
+    },
+    {
+      "id": "reading-media",
+      "label": "Reading & Media",
+      "description": "Books, public domain libraries, audio, and thoughtful publications."
+    },
+    {
+      "id": "making-play",
+      "label": "Making & Play",
+      "description": "Puzzles, crafts, games, and hands-on projects."
+    }
+  ],
+  "resources": [
+    {
+      "id": "the-last-museum",
+      "title": "The Last Museum",
+      "url": "https://lastmuseum.com/",
+      "description": "Search and browse over 6.3 million artworks across human history—from 3000 BC to the present—with timeline filtering and high-resolution museum plates.",
+      "notes": "Great for exploring art history chronologically or searching by subject, artist, or era.",
+      "category": "arts-culture",
+      "scopes": [
+        "family",
+        "kids",
+        "personal"
+      ],
+      "tags": [
+        "art",
+        "museum",
+        "free"
+      ],
+      "format": "archive",
+      "access": "free",
+      "added": "2026-10-22",
+      "featured": true
+    }
+  ]
+}</script>
+  <script>
+    (function () {
+      const payload = JSON.parse(document.getElementById('curated-data').textContent);
+      const resources = payload.resources || [];
+      const scopes = payload.scopes || [];
+      const categories = payload.categories || [];
+
+      const scopeMap = Object.fromEntries(scopes.map(s => [s.id, s]));
+      const categoryMap = Object.fromEntries(categories.map(c => [c.id, c]));
+
+      const state = {
+        scope: 'all',
+        category: 'all',
+        query: '',
+        tags: new Set(),
+        tagMode: 'all', // 'all' | 'any'
+        sort: 'newest',
+        view: 'cards',
+        highlightedId: null
+      };
+
+      // DOM elements
+      const scopesBar = document.getElementById('scopes-bar');
+      const scopeDesc = document.getElementById('scope-description');
+      const searchInput = document.getElementById('search-input');
+      const categorySelect = document.getElementById('category-select');
+      const sortSelect = document.getElementById('sort-select');
+      const tagRail = document.getElementById('tag-rail');
+      const tagModeBtn = document.getElementById('tag-mode-btn');
+      const clearFiltersBtn = document.getElementById('clear-filters-btn');
+      const resultsSummary = document.getElementById('results-summary');
+      const resultsContainer = document.getElementById('results-container');
+      const surpriseBtn = document.getElementById('surprise-btn');
+
+      function getDomain(url) {
+        try {
+          return new URL(url).hostname.replace(/^www\./, '');
+        } catch (_) {
+          return url;
+        }
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      // Sync state from URL hash
+      function readHashState() {
+        const hash = window.location.hash.replace(/^#/, '');
+        if (!hash) return;
+        const params = new URLSearchParams(hash);
+        if (params.get('scope')) state.scope = params.get('scope');
+        if (params.get('category')) state.category = params.get('category');
+        if (params.get('q')) state.query = params.get('q');
+        if (params.get('view') && ['cards', 'index', 'directory', 'tags'].includes(params.get('view'))) {
+          state.view = params.get('view');
+        }
+        if (params.get('sort')) state.sort = params.get('sort');
+        if (params.get('mode') === 'any' || params.get('mode') === 'all') {
+          state.tagMode = params.get('mode');
+        }
+        state.tags.clear();
+        if (params.get('tags')) {
+          params.get('tags').split(',').map(t => t.trim()).filter(Boolean).forEach(t => state.tags.add(t));
+        }
+      }
+
+      function writeHashState() {
+        const params = new URLSearchParams();
+        if (state.scope !== 'all') params.set('scope', state.scope);
+        if (state.category !== 'all') params.set('category', state.category);
+        if (state.query.trim()) params.set('q', state.query.trim());
+        if (state.tags.size > 0) params.set('tags', Array.from(state.tags).join(','));
+        if (state.tagMode !== 'all') params.set('mode', state.tagMode);
+        if (state.sort !== 'newest') params.set('sort', state.sort);
+        if (state.view !== 'cards') params.set('view', state.view);
+        const str = params.toString();
+        const target = str ? '#' + str : window.location.pathname + window.location.search;
+        window.history.replaceState(null, '', target);
+      }
+
+      // Theme buttons
+      function updateThemeButtons() {
+        const current = document.documentElement.getAttribute('data-theme') || 'auto';
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-theme-val') === current);
+        });
+      }
+
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = btn.getAttribute('data-theme-val');
+          document.documentElement.setAttribute('data-theme', val);
+          try {
+            localStorage.setItem('curated-theme', val);
+          } catch (_) {}
+          updateThemeButtons();
+        });
+      });
+
+      // Populate Categories Select
+      function initCategories() {
+        categories.forEach(cat => {
+          const count = resources.filter(r => r.category === cat.id).length;
+          const opt = document.createElement('option');
+          opt.value = cat.id;
+          opt.textContent = `${cat.label} (${count})`;
+          categorySelect.appendChild(opt);
+        });
+      }
+
+      // Filter resources
+      function getFilteredResources() {
+        const q = state.query.trim().toLowerCase();
+        const activeTags = Array.from(state.tags);
+
+        const filtered = resources.filter(r => {
+          if (state.scope === 'free') {
+            if (r.access !== 'free' && !(r.tags || []).includes('free')) return false;
+          } else if (state.scope !== 'all') {
+            if (!(r.scopes || []).includes(state.scope)) return false;
+          }
+
+          if (state.category !== 'all' && r.category !== state.category) {
+            return false;
+          }
+
+          if (activeTags.length > 0) {
+            const rTags = r.tags || [];
+            if (state.tagMode === 'all') {
+              if (!activeTags.every(t => rTags.includes(t))) return false;
+            } else {
+              if (!activeTags.some(t => rTags.includes(t))) return false;
+            }
+          }
+
+          if (q) {
+            const hay = [
+              r.title,
+              r.url,
+              getDomain(r.url),
+              r.description,
+              r.notes,
+              categoryMap[r.category]?.label,
+              ...(r.tags || []).map(t => '#' + t),
+              ...(r.scopes || [])
+            ].filter(Boolean).join(' ').toLowerCase();
+            if (!hay.includes(q)) return false;
+          }
+
+          return true;
+        });
+
+        filtered.sort((a, b) => {
+          if (state.sort === 'title') return a.title.localeCompare(b.title);
+          if (state.sort === 'category') {
+            const ca = categoryMap[a.category]?.label || a.category;
+            const cb = categoryMap[b.category]?.label || b.category;
+            return ca.localeCompare(cb) || a.title.localeCompare(b.title);
+          }
+          if (state.sort === 'domain') {
+            return getDomain(a.url).localeCompare(getDomain(b.url)) || a.title.localeCompare(b.title);
+          }
+          return (b.added || '').localeCompare(a.added || '') || a.title.localeCompare(b.title);
+        });
+
+        return filtered;
+      }
+
+      // Render Scopes Bar
+      function renderScopes() {
+        const items = [
+          { id: 'all', label: 'All Scopes', count: resources.length, description: 'Browsing the complete collection across personal and family scopes.' },
+          ...scopes.map(s => ({
+            id: s.id,
+            label: s.label,
+            count: resources.filter(r => (r.scopes || []).includes(s.id)).length,
+            description: s.description
+          })),
+          {
+            id: 'free',
+            label: 'Free Access',
+            count: resources.filter(r => r.access === 'free' || (r.tags || []).includes('free')).length,
+            description: 'Resources that are completely free and open to explore without paywalls.'
+          }
+        ];
+
+        scopesBar.innerHTML = items.map(item => `
+          <button
+            type="button"
+            class="scope-tab ${state.scope === item.id ? 'active' : ''}"
+            data-scope-id="${escapeHtml(item.id)}"
+          >
+            <span>${escapeHtml(item.label)}</span>
+            <span class="scope-count">${item.count}</span>
+          </button>
+        `).join('');
+
+        const activeItem = items.find(i => i.id === state.scope) || items[0];
+        scopeDesc.textContent = activeItem.description;
+
+        scopesBar.querySelectorAll('.scope-tab').forEach(btn => {
+          btn.addEventListener('click', () => {
+            state.scope = btn.getAttribute('data-scope-id');
+            state.highlightedId = null;
+            syncAndRender();
+          });
+        });
+      }
+
+      // Render Tag Rail
+      function renderTags() {
+        const counts = new Map();
+        resources.forEach(r => {
+          (r.tags || []).forEach(t => counts.set(t, (counts.get(t) || 0) + 1));
+        });
+        const sortedTags = Array.from(counts.entries()).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+        tagRail.innerHTML = sortedTags.map(([tag, count]) => `
+          <button
+            type="button"
+            class="tag-pill ${state.tags.has(tag) ? 'active' : ''}"
+            data-tag="${escapeHtml(tag)}"
+          >
+            <span>#${escapeHtml(tag)}</span>
+            <span class="tag-pill-count">${count}</span>
+          </button>
+        `).join('');
+
+        tagRail.querySelectorAll('.tag-pill').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const tag = btn.getAttribute('data-tag');
+            if (state.tags.has(tag)) state.tags.delete(tag);
+            else state.tags.add(tag);
+            state.highlightedId = null;
+            syncAndRender();
+          });
+        });
+
+        tagModeBtn.textContent = `Match: ${state.tagMode.toUpperCase()}`;
+        const hasFilters = state.scope !== 'all' || state.category !== 'all' || state.query.trim() !== '' || state.tags.size > 0;
+        clearFiltersBtn.hidden = !hasFilters;
+      }
+
+      function renderCardsView(items) {
+        return `<div class="cards-grid">${items.map(r => {
+          const domain = getDomain(r.url);
+          const catLabel = categoryMap[r.category]?.label || r.category;
+          const isHighlighted = state.highlightedId === r.id;
+          return `
+            <article class="resource-card ${isHighlighted ? 'highlighted' : ''}" id="res-${escapeHtml(r.id)}">
+              <div class="card-top">
+                <div class="card-meta-row">
+                  <span class="domain-badge">${escapeHtml(domain)}${r.format ? ' · ' + escapeHtml(r.format) : ''}</span>
+                  <div class="badges-group">
+                    ${(r.scopes || []).map(sc => `
+                      <span class="scope-badge" data-scope="${escapeHtml(sc)}">${escapeHtml(scopeMap[sc]?.label || sc)}</span>
+                    `).join('')}
+                  </div>
+                </div>
+                <h2 class="card-title">
+                  <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">
+                    <span>${escapeHtml(r.title)}</span>
+                    <span class="ext-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </h2>
+                <p class="card-desc">${escapeHtml(r.description || '')}</p>
+                ${r.notes ? `<p class="card-notes">${escapeHtml(r.notes)}</p>` : ''}
+              </div>
+              <div class="card-footer">
+                <div class="card-tags">
+                  ${(r.tags || []).map(t => `
+                    <button type="button" class="tag-pill ${state.tags.has(t) ? 'active' : ''}" data-card-tag="${escapeHtml(t)}">#${escapeHtml(t)}</button>
+                  `).join('')}
+                </div>
+                <span class="card-category">${escapeHtml(catLabel)}</span>
+              </div>
+            </article>
+          `;
+        }).join('')}</div>`;
+      }
+
+      function renderIndexView(items) {
+        return `
+          <div class="index-table-wrap">
+            <table class="index-table">
+              <thead>
+                <tr>
+                  <th>Resource</th>
+                  <th>Domain</th>
+                  <th>Category</th>
+                  <th>Scopes</th>
+                  <th>Tags</th>
+                  <th>Added</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${items.map(r => `
+                  <tr>
+                    <td>
+                      <a class="index-title-link" href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">
+                        ${escapeHtml(r.title)} ↗
+                      </a>
+                      <div style="font-size:0.82rem;color:var(--text-secondary);margin-top:0.2rem;">
+                        ${escapeHtml(r.description || '')}
+                      </div>
+                    </td>
+                    <td style="font-family:var(--font-mono);font-size:0.78rem;color:var(--text-muted);white-space:nowrap;">
+                      ${escapeHtml(getDomain(r.url))}
+                    </td>
+                    <td style="white-space:nowrap;font-size:0.82rem;">
+                      ${escapeHtml(categoryMap[r.category]?.label || r.category)}
+                    </td>
+                    <td>
+                      <div class="badges-group">
+                        ${(r.scopes || []).map(sc => `
+                          <span class="scope-badge" data-scope="${escapeHtml(sc)}">${escapeHtml(scopeMap[sc]?.label || sc)}</span>
+                        `).join('')}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="card-tags">
+                        ${(r.tags || []).map(t => `
+                          <button type="button" class="tag-pill ${state.tags.has(t) ? 'active' : ''}" data-card-tag="${escapeHtml(t)}">#${escapeHtml(t)}</button>
+                        `).join('')}
+                      </div>
+                    </td>
+                    <td style="font-family:var(--font-mono);font-size:0.76rem;color:var(--text-muted);white-space:nowrap;">
+                      ${escapeHtml(r.added || '')}
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+
+      function renderDirectoryView(items) {
+        const grouped = categories
+          .map(cat => ({
+            cat,
+            entries: items.filter(r => r.category === cat.id)
+          }))
+          .filter(g => g.entries.length > 0);
+
+        return `
+          <div class="directory-sections">
+            ${grouped.map(({ cat, entries }) => `
+              <section class="directory-group">
+                <div class="directory-group-header">
+                  <div>
+                    <h2 class="directory-group-title">${escapeHtml(cat.label)}</h2>
+                    <p class="directory-group-desc">${escapeHtml(cat.description)}</p>
+                  </div>
+                  <span class="scope-count">${entries.length} ${entries.length === 1 ? 'resource' : 'resources'}</span>
+                </div>
+                <ul class="directory-list">
+                  ${entries.map(r => `
+                    <li class="directory-item">
+                      <div class="directory-item-main">
+                        <a class="directory-item-title" href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">
+                          ${escapeHtml(r.title)} ↗
+                        </a>
+                        <span class="domain-badge">(${escapeHtml(getDomain(r.url))})</span>
+                        <div class="directory-item-desc">${escapeHtml(r.description || '')}</div>
+                      </div>
+                      <div class="card-tags">
+                        ${(r.tags || []).map(t => `
+                          <button type="button" class="tag-pill ${state.tags.has(t) ? 'active' : ''}" data-card-tag="${escapeHtml(t)}">#${escapeHtml(t)}</button>
+                        `).join('')}
+                      </div>
+                    </li>
+                  `).join('')}
+                </ul>
+              </section>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      function renderTagAtlasView(items) {
+        const tagMap = new Map();
+        items.forEach(r => {
+          (r.tags || []).forEach(t => {
+            if (!tagMap.has(t)) tagMap.set(t, []);
+            tagMap.get(t).push(r);
+          });
+        });
+
+        const sorted = Array.from(tagMap.entries()).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+
+        return `
+          <div class="tag-atlas-grid">
+            ${sorted.map(([tag, list]) => {
+              const related = new Set();
+              list.forEach(r => (r.tags || []).forEach(other => {
+                if (other !== tag) related.add(other);
+              }));
+              return `
+                <section class="tag-atlas-card">
+                  <div class="tag-atlas-header">
+                    <button type="button" class="tag-atlas-name" data-card-tag="${escapeHtml(tag)}">#${escapeHtml(tag)}</button>
+                    <span class="scope-count">${list.length} ${list.length === 1 ? 'entry' : 'entries'}</span>
+                  </div>
+                  <ul class="tag-atlas-links">
+                    ${list.map(r => `
+                      <li>
+                        <a href="${escapeHtml(r.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(r.title)} ↗</a>
+                        <span class="domain-badge"> · ${escapeHtml(getDomain(r.url))}</span>
+                      </li>
+                    `).join('')}
+                  </ul>
+                  ${related.size > 0 ? `
+                    <div class="related-tags-row">
+                      <span>Related:</span>
+                      ${Array.from(related).map(rel => `
+                        <button type="button" class="tag-pill" data-card-tag="${escapeHtml(rel)}">#${escapeHtml(rel)}</button>
+                      `).join('')}
+                    </div>
+                  ` : ''}
+                </section>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+
+      function renderResults() {
+        const filtered = getFilteredResources();
+        const total = resources.length;
+        resultsSummary.textContent = filtered.length === total
+          ? `Showing all ${total} curated ${total === 1 ? 'resource' : 'resources'}`
+          : `Showing ${filtered.length} of ${total} curated ${total === 1 ? 'resource' : 'resources'}`;
+
+        document.querySelectorAll('.view-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-view') === state.view);
+        });
+
+        if (filtered.length === 0) {
+          resultsContainer.innerHTML = `
+            <div class="empty-state">
+              <p style="margin:0 0 0.6rem;font-size:1.05rem;font-weight:500;">No matching resources found</p>
+              <p style="margin:0 0 1rem;font-size:0.88rem;">Try clearing a tag filter, switching scope, or broadening your search query.</p>
+              <button type="button" class="action-btn" id="empty-reset-btn">Reset all filters</button>
+            </div>
+          `;
+          document.getElementById('empty-reset-btn')?.addEventListener('click', resetAllFilters);
+          return;
+        }
+
+        if (state.view === 'index') {
+          resultsContainer.innerHTML = renderIndexView(filtered);
+        } else if (state.view === 'directory') {
+          resultsContainer.innerHTML = renderDirectoryView(filtered);
+        } else if (state.view === 'tags') {
+          resultsContainer.innerHTML = renderTagAtlasView(filtered);
+        } else {
+          resultsContainer.innerHTML = renderCardsView(filtered);
+        }
+
+        resultsContainer.querySelectorAll('[data-card-tag]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const tag = btn.getAttribute('data-card-tag');
+            if (state.tags.has(tag)) state.tags.delete(tag);
+            else state.tags.add(tag);
+            syncAndRender();
+          });
+        });
+      }
+
+      function resetAllFilters() {
+        state.scope = 'all';
+        state.category = 'all';
+        state.query = '';
+        state.tags.clear();
+        state.highlightedId = null;
+        searchInput.value = '';
+        categorySelect.value = 'all';
+        syncAndRender();
+      }
+
+      function syncAndRender() {
+        searchInput.value = state.query;
+        categorySelect.value = state.category;
+        sortSelect.value = state.sort;
+        writeHashState();
+        renderScopes();
+        renderTags();
+        renderResults();
+      }
+
+      // Wire events
+      searchInput.addEventListener('input', e => {
+        state.query = e.target.value;
+        state.highlightedId = null;
+        syncAndRender();
+      });
+
+      categorySelect.addEventListener('change', e => {
+        state.category = e.target.value;
+        state.highlightedId = null;
+        syncAndRender();
+      });
+
+      sortSelect.addEventListener('change', e => {
+        state.sort = e.target.value;
+        syncAndRender();
+      });
+
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.view = btn.getAttribute('data-view');
+          syncAndRender();
+        });
+      });
+
+      tagModeBtn.addEventListener('click', () => {
+        state.tagMode = state.tagMode === 'all' ? 'any' : 'all';
+        syncAndRender();
+      });
+
+      clearFiltersBtn.addEventListener('click', resetAllFilters);
+
+      surpriseBtn.addEventListener('click', () => {
+        const current = getFilteredResources();
+        const pool = current.length > 0 ? current : resources;
+        if (pool.length === 0) return;
+        const pick = pool[Math.floor(Math.random() * pool.length)];
+        state.view = 'cards';
+        state.highlightedId = pick.id;
+        syncAndRender();
+        const el = document.getElementById('res-' + pick.id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+
+      window.addEventListener('keydown', e => {
+        if (e.key === '/' && document.activeElement !== searchInput && !['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement?.tagName)) {
+          e.preventDefault();
+          searchInput.focus();
+        } else if (e.key === 'Escape' && document.activeElement === searchInput) {
+          if (searchInput.value) {
+            state.query = '';
+            searchInput.value = '';
+            syncAndRender();
+          } else {
+            searchInput.blur();
+          }
+        }
+      });
+
+      window.addEventListener('hashchange', () => {
+        readHashState();
+        syncAndRender();
+      });
+
+      // Initialize
+      updateThemeButtons();
+      initCategories();
+      readHashState();
+      syncAndRender();
+    })();
+  </script>
+</body>
+</html>
