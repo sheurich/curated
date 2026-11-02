@@ -104,6 +104,53 @@
       "access": "free",
       "added": "2026-10-22",
       "featured": true
+    },
+    {
+      "id": "hacker-books",
+      "title": "Hacker Books",
+      "url": "https://hackerbooks.org/",
+      "description": "Search and browse over 16,000 books mentioned across Hacker News comment threads since 2007, ranked by distinct recommendations, rising trends, and 29 subject categories.",
+      "notes": "Links every book directly to the original Hacker News comment threads where readers discussed or recommended it—great for finding deeply vetted computing, science, history, and sci-fi reads.",
+      "category": "reading-media",
+      "scopes": [
+        "personal",
+        "family"
+      ],
+      "tags": [
+        "books",
+        "reading",
+        "recommendations",
+        "programming",
+        "free"
+      ],
+      "format": "reference",
+      "access": "free",
+      "added": "2026-11-02",
+      "featured": true
+    },
+    {
+      "id": "foss-comics",
+      "title": "F/OSS Comics",
+      "url": "https://fosscomics.com/",
+      "description": "Illustrated comic series exploring the history of computing, Unix, and free and open-source software—from Bell Labs and Dennis Ritchie to BSD Unix and the birth of the vi editor.",
+      "notes": "Approachable visual storytelling that makes operating-system history, the Unix philosophy, and classic software engineering accessible for both older kids and adults.",
+      "category": "learning-reference",
+      "scopes": [
+        "family",
+        "kids",
+        "personal"
+      ],
+      "tags": [
+        "comics",
+        "computing-history",
+        "open-source",
+        "unix",
+        "free"
+      ],
+      "format": "reading",
+      "access": "free",
+      "added": "2026-11-02",
+      "featured": true
     }
   ]
 }
